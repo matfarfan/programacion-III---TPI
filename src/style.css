@@ -1,0 +1,236 @@
+/* ===== VARIABLES ===== */
+:root {
+    --color-primario: #ff6347;
+    --color-fondo: #f0f0f0;
+    --color-texto: #333;
+    --color-blanco: #fff;
+    --color-borde: #ddd;
+    --color-focus: #ff4500;
+    --color-danger: #c0392b;
+    --color-danger-hover: #922b21;
+    --color-secondary: #555;
+    --color-secondary-hover: #333;
+}
+
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+}
+
+/* ===== BODY GENERAL ===== */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: sans-serif;
+}
+
+/* ===== LOGIN ===== */
+body.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+    background-color: var(--color-blanco);
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+/* ===== INPUTS ===== */
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-borde);
+    margin-bottom: 15px;
+}
+
+input:focus {
+    border: 1px solid var(--color-focus);
+    outline: none;
+}
+
+/* ===== BOTONES ===== */
+button {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--color-focus);
+    transform: scale(1.03);
+}
+
+/* ===== TEXTO ===== */
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    color: var(--color-primario);
+}
+
+p {
+    line-height: 1.5;
+    color: var(--color-texto);
+}
+
+a {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+/* ===================================================== */
+/* ==================== STORE =========================== */
+/* ===================================================== */
+
+body.store-page {
+    display: block;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Header */
+.store-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.store-nav a {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.store-nav a:hover {
+    background-color: var(--color-focus);
+}
+
+/* Buscador */
+#search {
+    max-width: 400px;
+}
+
+/* Categorías */
+#categories {
+    margin-bottom: 20px;
+}
+
+#categories button {
+    width: auto;
+    margin: 5px;
+    padding: 8px 12px;
+}
+
+/* Productos */
+#products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+#products div {
+    background-color: var(--color-blanco);
+    padding: 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#products div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+#products img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#products button {
+    width: auto;
+    min-width: 120px;
+    margin-top: 10px;
+}
+
+/* Carrito */
+#cart-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#cart-container > div {
+    background-color: var(--color-blanco);
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 10px 18px;
+    align-items: center;
+}
+
+#cart-container img {
+    width: 140px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    grid-row: span 4;
+}
+
+#cart-container h3,
+#cart-container p {
+    text-align: left;
+    margin: 0;
+}
+
+#cart-container button {
+    width: auto;
+    min-width: 90px;
+    margin: 5px 5px 0 0;
+}
+
+/* Botones especiales */
+.remove {
+    background-color: var(--color-danger);
+}
+
+.remove:hover {
+    background-color: var(--color-danger-hover);
+}
+
+.decrease {
+    background-color: var(--color-secondary);
+}
+
+.decrease:hover {
+    background-color: var(--color-secondary-hover);
+}
+
+.cart-actions {
+    grid-area: buttons;
+    display: flex;
+    gap: 8px;
+}

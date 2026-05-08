@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito</title>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="store-page">
+
+  <header class="store-header">
+
+    <h1>Carrito</h1>
+
+    <nav class="store-nav">
+      <a href="/src/pages/store/home/home.html">
+        Volver al catálogo
+      </a>
+    </nav>
+
+  </header>                                  <!--Navegación al catálogo-->
+
+  <div class="cart-layout">
+
+  <div id="cart-container"></div>
+
+  <aside class="cart-summary">
+
+    <h2>Resumen</h2>
+
+    <div id="cart-total"></div>
+
+    <button id="clear-cart">
+      Vaciar carrito
+    </button>
+
+  </aside>
+
+</div>               <!--div para dibujar los productos del carrito-->
+
+  <script type="module" src="./cart.ts"></script>       <!--module para poder importar y exportar, ejecuta cart.ts-->
+
+</body>
+</html>

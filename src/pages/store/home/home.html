@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Store</title>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body class="store-page">
+
+  <header class="store-header">
+
+  <h1>Food Store</h1>
+
+  <nav class="store-nav">
+    <a href="/src/pages/store/cart/cart.html">
+      Ver carrito
+    </a>
+  </nav>
+
+</header>             <!--Navegación al carrito-->
+
+  <input type="text" id="search" placeholder="Buscar producto..." />  <!--Campo de búsqueda-->
+
+  <div id="categories"></div>           <!--Contenedor donde se van a mostrar las categorías-->
+  <div id="products"></div>             <!--div para dibujar los productos-->
+
+  <script type="module" src="./home.ts"></script>           <!--module para poder importar y exportar, ejecuta home.ts-->
+
+</body>
+</html>
