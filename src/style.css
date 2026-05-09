@@ -1,5 +1,5 @@
 /* ===== VARIABLES ===== */
-:root {
+:root {                  /* :root permite crear variables globales reutilizables en todo el CSS */
     --color-primario: #ff6347;
     --color-fondo: #f0f0f0;
     --color-texto: #333;
@@ -13,26 +13,26 @@
 }
 
 /* ===== RESET ===== */
-* {
+* {                     /* hace que padding y border no agranden el tamaño total del elemento */
     box-sizing: border-box;
 }
 
 /* ===== BODY GENERAL ===== */
-body {
+body {                  /* estilos generales aplicados a toda la página */
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: sans-serif;
 }
 
 /* ===== LOGIN ===== */
-body.login-page {
+body.login-page {       /* centra el formulario de login vertical y horizontalmente */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.login-form {
+.login-form {           /* estilos visuales del formulario de login */
     background-color: var(--color-blanco);
     padding: 20px;
     margin: 10px;
@@ -43,20 +43,20 @@ body.login-page {
 }
 
 /* ===== INPUTS ===== */
-input {
+input {                 /* estilos generales de los inputs */
     width: 100%;
     padding: 10px;
     border: 1px solid var(--color-borde);
     margin-bottom: 15px;
 }
 
-input:focus {
+input:focus {           /* cambia el borde cuando el input está seleccionado */
     border: 1px solid var(--color-focus);
     outline: none;
 }
 
 /* ===== BOTONES ===== */
-button {
+button {                /* estilos generales de todos los botones */
     background-color: var(--color-primario);
     color: var(--color-blanco);
     padding: 10px;
@@ -64,28 +64,29 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    /* agrega transición suave en hover */
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+button:hover {          /* efecto visual al pasar el mouse */
     background-color: var(--color-focus);
     transform: scale(1.03);
 }
 
 /* ===== TEXTO ===== */
-h1 {
+h1 {                    /* estilos principales para títulos */
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 2px;
     color: var(--color-primario);
 }
 
-p {
+p {                     /* estilos generales para párrafos */
     line-height: 1.5;
     color: var(--color-texto);
 }
 
-a {
+a {                     /* estilos de enlaces */
     color: var(--color-primario);
     text-decoration: none;
 }
@@ -94,71 +95,74 @@ a {
 /* ==================== STORE =========================== */
 /* ===================================================== */
 
-body.store-page {
+body.store-page {                       /* estilos generales de la tienda */
     display: block;
     min-height: 100vh;
     padding: 20px;
 }
 
 /* Header */
-.store-header {
+.store-header {                         /* contenedor del header */
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
 
-.store-nav a {
+.store-nav a {                          /* estilos de enlaces de navegación */
     background-color: var(--color-primario);
     color: var(--color-blanco);
     padding: 10px 15px;
     border-radius: 8px;
+    /* transición suave para hover */
     transition: background-color 0.3s ease;
 }
 
-.store-nav a:hover {
+.store-nav a:hover {                    /* efecto hover navegación */
     background-color: var(--color-focus);
 }
 
 /* Buscador */
-#search {
+#search {                               /* ancho máximo del buscador */
     max-width: 400px;
 }
 
 /* Categorías */
-#categories {
+#categories {                           /* separación inferior de categorías */
     margin-bottom: 20px;
 }
 
-#categories button {
+#categories button {                    /* estilos botones categorías */
     width: auto;
     margin: 5px;
     padding: 8px 12px;
 }
 
 /* Productos */
-#products {
+#products {                             /* contenedor de productos usando grid responsive */
     display: grid;
+    /* adapta columnas automáticamente según espacio */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 
-#products div {
+#products div {                         /* estilos de tarjetas de productos */
     background-color: var(--color-blanco);
     padding: 15px;
     border: 1px solid var(--color-borde);
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(0,0,0,0.08);
     overflow: hidden;
+    /* animaciones suaves */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#products div:hover {
+#products div:hover {                   /* efecto hover sobre productos */
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-#products img {
+#products img {                         /* estilos imágenes productos */
     width: 100%;
     height: 160px;
     object-fit: cover;
@@ -166,19 +170,19 @@ body.store-page {
     margin-bottom: 10px;
 }
 
-#products button {
+#products button {                      /* estilos botones productos */
     width: auto;
     min-width: 120px;
     margin-top: 10px;
 }
 
 /* Carrito */
-#cart-container {
+#cart-container {                       /* ancho máximo del carrito y centrado */
     max-width: 700px;
     margin: 0 auto;
 }
 
-#cart-container > div {
+#cart-container > div {                 /* estilos de cada producto dentro del carrito */
     background-color: var(--color-blanco);
     padding: 15px;
     margin-bottom: 12px;
@@ -186,51 +190,89 @@ body.store-page {
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(0,0,0,0.08);
 
+    /* organiza imagen y contenido */
     display: grid;
     grid-template-columns: 140px 1fr;
     gap: 10px 18px;
     align-items: center;
 }
 
-#cart-container img {
+#cart-container img {                   /* estilos imágenes carrito */
     width: 140px;
     height: 110px;
     object-fit: cover;
     border-radius: 8px;
+    /* ocupa varias filas dentro del grid */
     grid-row: span 4;
 }
 
-#cart-container h3,
+#cart-container h3,                     /* alinea textos del carrito a la izquierda */
 #cart-container p {
     text-align: left;
     margin: 0;
 }
 
-#cart-container button {
+#cart-container button {                /* estilos botones carrito */
     width: auto;
     min-width: 90px;
     margin: 5px 5px 0 0;
 }
 
 /* Botones especiales */
-.remove {
+.remove {                               /* botón eliminar */
     background-color: var(--color-danger);
 }
 
-.remove:hover {
+.remove:hover {                         /* hover botón eliminar */
     background-color: var(--color-danger-hover);
 }
 
-.decrease {
+.decrease {                             /* botón disminuir */
     background-color: var(--color-secondary);
 }
 
-.decrease:hover {
+.decrease:hover {                       /* hover disminuir */
     background-color: var(--color-secondary-hover);
 }
 
-.cart-actions {
+.cart-actions {                         /* contenedor botones acciones carrito */
     grid-area: buttons;
     display: flex;
     gap: 8px;
+}
+
+.cart-layout {                          /* layout principal carrito + resumen */
+    display: grid;
+    /* divide productos y resumen lateral */
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+
+    align-items: start;
+}
+
+.cart-summary {                         /* panel lateral resumen */
+    background-color: var(--color-blanco);
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--color-borde);
+
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+
+    /* mantiene el resumen visible */
+    position: sticky;
+    top: 20px;
+}
+
+.cart-summary h2 {                      /* separación título resumen */
+    margin-bottom: 20px;
+}
+
+#cart-total {                           /* estilos total carrito */
+    font-size: 22px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
 }

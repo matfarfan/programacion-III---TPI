@@ -9,14 +9,14 @@ const cart = JSON.parse(localStorage.getItem("cart") || "[]");  //trae el carrit
 console.log("Carrito guardado:", cart);
 
 if (cartContainer) {                //si el contenedor existe avanza
-  if (cart.lenght === 0) {        //si esta vacio muestra mensaje
+  if (cart.length === 0) {        //si esta vacio muestra mensaje
     cartContainer.innerHTML = "<p>El carrito está vacío.</p>";
   } else {
     let total = 0;              //variable para acumular el total de la compra
     cart.forEach((cartItem: any) => {           //recorre cada item guardado en el carrito
       const product = PRODUCTS.find(product => product.id === cartItem.id);  //busca el producto completo usando el id guardado
 
-      if (product) {                                      //si el producto existe, lo muestra, para evitar errores
+      if (product) {                                      //si el producto existe, lo muestra
                 
         total += product.precio * cartItem.cantidad;    //calcula el subtotal y lo sumamos al total
                 
@@ -35,22 +35,19 @@ if (cartContainer) {                //si el contenedor existe avanza
             <button class="increase" data-id="${product.id}">+</button>
             <button class="decrease" data-id="${product.id}">-</button>
             <button class="remove" data-id="${product.id}">Eliminar</button>
-          </div>
+        </div>
         `;     //inserta mezclando datos del producto y del carrito y agrega botones + - eliminar
 
 
-        cartContainer.appendChild(item);                //agrega el producto al contenedor principal
+        cartContainer.appendChild(item);                //agrega el producto al contenedor principal del carrito
       }
     });
 
-    const clearButton = document.createElement("button");   //botón para vaciar el carrito
-    clearButton.textContent = "Vaciar carrito";             //texto que se muestra
-    clearButton.addEventListener("click", clearCart);       //evento click para eliminar el carrito
-    cartContainer.appendChild(clearButton);                 //agrega el botón al contenedor del carrito para que sea visible en pantalla
-        
-    const totalElement = document.createElement("h2");      //crea elemento para mostrar el total
-    totalElement.textContent = `Total: $${total}`;          //muestra el total acumulado
-    cartContainer.appendChild(totalElement);                //lo agrega al final del carrito
+    const totalContainer = document.getElementById("cart-total"); //busca el contenedor del resumen donde se muestra el total
+
+    if (totalContainer) {             //muestra el total acumulado dentro del panel resumen
+      totalContainer.textContent = `Total: $${total}`;
+    }
   }
 }
 
@@ -72,8 +69,14 @@ cartContainer?.addEventListener("click", (event) => {       //escucha los clicks
   }
 });
 
+const clearCartButton = document.getElementById("clear-cart");  //busca el botón para vaciar todo el carrito
+clearCartButton?.addEventListener("click", clearCart);          //si existe, le asigna el evento para limpiar el carrito
+
+
+
+
 function saveCart(updatedCart: any[]) {                     //guarda el carrito actualizado
-  localStorage.setItem("cart", JSON.stringify(updatedCart));//
+  localStorage.setItem("cart", JSON.stringify(updatedCart));//convierte a texto para poder guardarlo
   location.reload();                                        //recarga la página
 }
 
@@ -82,24 +85,20 @@ function increaseQuantity(id: number) {                     //función que aumen
     if (item.id === id) {                                   //si lo encuentra copia y lo aumenta
       return { ...item, cantidad: item.cantidad + 1 };
     }
-
     return item;                                            //sino lo devuele igual
   });
-
   saveCart(updatedCart);                                    //guarda el carrito actualizado
 }
 
-function decreaseQuantity(id: number) {                     //función que aumenta en 1 la cantidad
+function decreaseQuantity(id: number) {                     //función que disminuye en 1 la cantidad
   const updatedCart = cart
     .map((item: any) => {                                   //primero recorre el carrito para restar cantidad
       if (item.id === id) {                                 //si lo encuentra copia y disminuye
         return { ...item, cantidad: item.cantidad - 1 };
       }
-
       return item;                                          //sino lo devuele igual
     })
     .filter((item: any) => item.cantidad > 0);              //elimina el producto si queda en 0
-
   saveCart(updatedCart);                                    //guarda el carrito actualizado
 }
 
@@ -110,6 +109,6 @@ function removeProduct(id: number) {                        //función que elimi
 }
 
 function clearCart() {                                      //función que limpia el carrito
-  localStorage.removeItem("cart");
-  location.reload();
+  localStorage.removeItem("cart");                          //elimina el carrito guardado en localStorage
+  location.reload();                                        //recarga la página para actualizar la vista
 }

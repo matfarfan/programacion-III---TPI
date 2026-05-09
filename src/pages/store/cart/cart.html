@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Carrito</title>
+  <!-- conecta el archivo de estilos CSS -->
   <link rel="stylesheet" href="../../../style.css">
 </head>
+
 <body class="store-page">
 
   <header class="store-header">
@@ -19,25 +21,30 @@
 
   </header>                                  <!--Navegación al catálogo-->
 
+  <!-- layout principal del carrito -->
   <div class="cart-layout">
 
-  <div id="cart-container"></div>
+    <!-- contenedor donde TypeScript renderiza productos dinámicamente -->
+    <div id="cart-container"></div>
 
-  <aside class="cart-summary">
+    <!-- panel lateral resumen -->
+    <aside class="cart-summary">
 
-    <h2>Resumen</h2>
+      <h2>Resumen</h2>
 
-    <div id="cart-total"></div>
+      <!-- contenedor donde se muestra el total dinámicamente -->
+      <div id="cart-total"></div>
 
-    <button id="clear-cart">
-      Vaciar carrito
-    </button>
+      <!-- botón para vaciar el carrito -->
+      <button id="clear-cart">
+        Vaciar carrito
+      </button>
 
-  </aside>
+    </aside>
 
-</div>               <!--div para dibujar los productos del carrito-->
+  </div>
 
-  <script type="module" src="./cart.ts"></script>       <!--module para poder importar y exportar, ejecuta cart.ts-->
-
+  <!-- ejecuta la lógica TypeScript del carrito -->
+  <script type="module" src="./cart.ts"></script>
 </body>
 </html>
